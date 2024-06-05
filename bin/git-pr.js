@@ -88,7 +88,7 @@ const checkBranch = async (owner, repo, branch) => {
   }
 }
 
-// 检车是否存在未合并的 PR
+// 检查是否存在未合并的 PR
 const checkOpenPR = async (owner, repo, sourceBranch, targetBranch)  => {
   try {
     const { data: pullRequests } = await octokit.rest.pulls.list({
@@ -134,8 +134,8 @@ const createPR = async (owner, repo, sourceBranch, targetBranch) => {
 
     console.log('🚀 PR 创建成功：', pullRequest.html_url);
 
-    // 返回 pr 编号
-    return pullRequest.number;
+    // 返回 pr 信息
+    return pullRequest;
   } catch (error) {
     console.error('🚫PR 创建失败：', error);
     process.exit();
@@ -143,7 +143,12 @@ const createPR = async (owner, repo, sourceBranch, targetBranch) => {
 }
 
 // 合并 PR
-const mergePR = async (owner, repo, prNumber) => {
+const mergePR = async (owner, repo, prINfo, targetBranch) => {
+  const prNumber = prINfo
+  if (targetBranch === 'main' || targetBranch === 'master') {
+    console.log(`🚫主分支请手动合并，地址 ${prINfo.html_url}`)
+    process.exit();
+  }
   const { mergePR } = await inquirer.prompt({
     type: 'confirm',
     name: 'mergePR',
@@ -196,14 +201,10 @@ const gitPr = async (branchName, options) => {
       const prINfo = await checkOpenPR(owner_name, repository_name, sourceBranch, targetBranch);
 
       if (prINfo) {
-        if (targetBranch === 'main' || targetBranch === 'master') {
-          console.log(`🚫主分支请手动合并，地址 ${prINfo.html_url}`)
-          process.exit();
-        }
-        await mergePR(owner_name, repository_name, prINfo.prNumber, targetBranch);
+        await mergePR(owner_name, repository_name, prINfo, targetBranch);
       } else {
-        const prNumber = await createPR(owner_name, repository_name, sourceBranch, targetBranch);
-        await mergePR(owner_name, repository_name, prNumber, targetBranch);
+        const prINfo = await createPR(owner_name, repository_name, sourceBranch, targetBranch);
+        await mergePR(owner_name, repository_name, prINfo, targetBranch);
       }
     } catch (error) {
       console.error('🚫Error:', error);
