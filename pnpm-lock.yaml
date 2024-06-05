@@ -1,7 +1,7 @@
 lockfileVersion: '6.0'
 
 settings:
-  autoInstallPeers: true
+  autoInstallPeers: false
   excludeLinksFromLockfile: false
 
 dependencies:
@@ -40,7 +40,7 @@ dependencies:
     version: 2.30.1
   openapi2typescript:
     specifier: ^0.2.1
-    version: 0.2.1(react-dom@18.3.1)(react@18.3.1)(zod@3.23.8)
+    version: 0.2.1
   ora:
     specifier: ^8.0.1
     version: 8.0.1
@@ -5285,14 +5285,12 @@ packages:
       mimic-fn: 2.1.0
     dev: false
 
-  /openapi2typescript@0.2.1(react-dom@18.3.1)(react@18.3.1)(zod@3.23.8):
+  /openapi2typescript@0.2.1:
     resolution: {integrity: sha512-M6f0J5GVAXGX81vIvNOKwOpc7UFv7qF4zJV5BvDXqk/6x301NCsQnHgnozxcBDN5R165D3Za9XSN7PGlJpnJsA==}
     peerDependencies:
       zod: ^3.2.0
-    dependencies:
-      zod: 3.23.8
     optionalDependencies:
-      react-fetching-library: 1.7.6(react-dom@18.3.1)(react@18.3.1)
+      react-fetching-library: 1.7.6
     transitivePeerDependencies:
       - react
       - react-dom
@@ -5791,40 +5789,18 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /react-dom@18.3.1(react@18.3.1):
-    resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
-    peerDependencies:
-      react: ^18.3.1
-    dependencies:
-      loose-envify: 1.4.0
-      react: 18.3.1
-      scheduler: 0.23.2
-    dev: false
-    optional: true
-
-  /react-fetching-library@1.7.6(react-dom@18.3.1)(react@18.3.1):
+  /react-fetching-library@1.7.6:
     resolution: {integrity: sha512-+A+I4TzuVTqfOGCJ1UrZbOVvXdcl8hCUCITto8p9QW2v7hqgiHThQhG9hOPjCqDnLTdw041+7D9ploHDUPZS4w==}
     requiresBuild: true
     peerDependencies:
       react: '>=16.8.4'
       react-dom: '>=16.8.4'
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
     dev: false
     optional: true
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
-
-  /react@18.3.1:
-    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
-    optional: true
 
   /read-pkg-up@7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
@@ -6124,13 +6100,6 @@ packages:
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: false
-
-  /scheduler@0.23.2:
-    resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
-    optional: true
 
   /seek-bzip@1.0.6:
     resolution: {integrity: sha512-e1QtP3YL5tWww8uKaOCQ18UxIT2laNBXHjV/S2WYCiK4udiv8lkG89KRIoCjUagnAmCBurjF4zEVX2ByBbnCjQ==}
@@ -7267,10 +7236,6 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-    dev: false
-
-  /zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
     dev: false
 
   /zwitch@1.0.5:
