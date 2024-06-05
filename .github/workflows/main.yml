@@ -1,0 +1,51 @@
+# 整个流程的名字
+name: Release
+
+# 触发时机，在 main 分支 push 操作触发
+on:
+  push:
+    branches:
+      - main
+
+# 默认shell
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  changelog:
+    name: ChangeLog PR or Release
+    # 这里判断仓库owner是否是我自己，为了避免别人 fork 仓库触发，请自行修改
+    if: ${{ github.repository_owner == 'wzdzzz' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # 设置 pnpm。
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2.2.1
+        with:
+            version: ^8.17.7
+
+      # 设置 node。
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+      # 安装依赖。
+      - name: Install Dependencies
+        run: pnpm install
+      # 使用changesets/action自动创建 PR 或者发布
+      - name: Create Release Pull Request or Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: pnpm run version
+          publish: pnpm exec changeset publish
+          commit: '[ci] release'
+          title: '[ci] release'
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+
