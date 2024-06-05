@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
       # 设置 pnpm。
       - name: Setup PNPM
-        uses: pnpm/action-setup@v2.2.1
+        uses: pnpm/action-setup@v4
         with:
             version: ^7.0
 
@@ -30,11 +30,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 18
           cache: 'pnpm'
       # 安装依赖。
       - name: Install Dependencies
         run: pnpm install
+
       # 使用changesets/action自动创建 PR 或者发布
       - name: Create Release Pull Request or Publish
         id: changesets
