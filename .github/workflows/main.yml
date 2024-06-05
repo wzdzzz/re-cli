@@ -24,7 +24,7 @@ jobs:
       - name: Setup PNPM
         uses: pnpm/action-setup@v2.2.1
         with:
-            version: ^7.0
+            version: ^7.5.0
 
       # 设置 node。
       - name: Setup Node
