@@ -14,7 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "changeset": "changeset",
-    "version": "changeset version && pnpm install"
+    "version": "changeset version && pnpm install --no-frozen-lockfile"
   },
   "author": "",
   "license": "ISC",
