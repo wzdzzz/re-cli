@@ -166,7 +166,7 @@ const mergePR = async (owner, repo, prINfo, targetBranch) => {
       pull_number: prNumber,
     });
 
-    console.log('🚀 PR 合并成功');
+    console.log('🚀 PR 合并成功!');
   } catch (error) {
     console.error('🚫PR 合并失败：', error);
     process.exit();
