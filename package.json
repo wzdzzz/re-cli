@@ -1,6 +1,6 @@
 {
   "name": "@opengame/re-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "type": "module",
   "main": "index.js",
@@ -14,7 +14,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "changeset": "changeset",
-    "version": "changeset version && pnpm install --no-frozen-lockfile"
+    "version": "changeset version && pnpm install --no-frozen-lockfile",
+    "publish": "changeset publish"
   },
   "author": "",
   "license": "ISC",
