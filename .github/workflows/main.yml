@@ -36,6 +36,10 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --no-frozen-lockfile
 
+      # 自动生成 changeset
+      - name: Generate Changeset
+        run: pnpm exec changeset
+
       # 使用changesets/action自动创建 PR 或者发布
       - name: Create Release Pull Request or Publish
         id: changesets
