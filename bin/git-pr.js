@@ -144,7 +144,7 @@ const createPR = async (owner, repo, sourceBranch, targetBranch) => {
 
 // 合并 PR
 const mergePR = async (owner, repo, prINfo, targetBranch) => {
-  const prNumber = prINfo
+  const prNumber = prINfo.number
   if (targetBranch === 'main' || targetBranch === 'master') {
     console.log(`🚫主分支请手动合并，地址 ${prINfo.html_url}`)
     process.exit();
