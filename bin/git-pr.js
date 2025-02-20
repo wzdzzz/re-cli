@@ -50,10 +50,9 @@ const getGitRepoInfo = () => {
     // 获取最近一次commit时间
     const latestCommitTime = execSync('git log -1 --format=%cd', { encoding: 'utf-8' }).trim();
 
+    const repoUrl = execSync('git config --get remote.origin.url', { encoding: 'utf-8' }).trim();
     // 获取仓库名称
-    const repoName = execSync('basename -s .git `git config --get remote.origin.url`', {
-      encoding: 'utf-8',
-    }).trim();
+    const repoName = path.basename(repoUrl, '.git');
     // 获取远程仓库 URL
     const remoteUrl = execSync('git remote -v', { encoding: 'utf-8' }).trim().split('\n')[0];
     // 从 URL 中提取仓库所属的组织或用户
